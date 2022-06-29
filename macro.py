@@ -2,7 +2,6 @@ from selenium import webdriver
 import time
 from datetime import date
 import random
-import os
 
 class Macro():
     def __init__(self, name='ㅇㅇ', password='abcabc',title='title',img ='', content='content'):
@@ -39,16 +38,15 @@ class Macro():
                     
             self.driver.switch_to.window(self.popup_page)
             self.driver.find_element_by_xpath('//*[@id="fileupload"]/div[1]/input').send_keys(img)
-            time.sleep(1)
+            time.sleep(15)
             self.driver.find_element_by_xpath('/html/body/div/div/div[2]/button').click()
-
             self.driver.switch_to.window(self.main_page)
 
         self.driver.find_element_by_xpath('//*[@id="chk_html"]').click()
-        self.driver.find_element_by_xpath('//*[@id="tx_canvas_source"]').send_keys(content)
+        self.driver.find_element_by_xpath('//html//body').send_keys(content)
 
     def submit(self):
-        self.driver.find_element_by_xpath('//*[@id="write"]/div[4]/button[2]').click()
+        self.driver.find_element_by_xpath('//*[@id="write"]/div[5]/button[2]').click()
         
 
 titles = ['프로브의 슬픔','프로브를 아시나요', '프로브', 'date.today().strftime("%Y %m %d 손익인증")',\
