@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+from datetime import date
 import random
 import os
 
@@ -8,7 +9,7 @@ class Macro():
         self.driver_path = '/Users/yeonghun/chromedriver' #PATH
         self.driver = webdriver.Chrome(executable_path = self.driver_path)
 
-        self.link = 'https://gall.dcinside.com/board/write/?id=neostock' #write link
+        self.link = 'https://gall.dcinside.com/mgallery/board/write/?id=kospi' #write link
         self.driver.get(self.link)
         
         self.main_page = self.driver.current_window_handle
@@ -49,14 +50,14 @@ class Macro():
     def submit(self):
         self.driver.find_element_by_xpath('//*[@id="write"]/div[4]/button[2]').click()
         
-        
-titles = ['삼전 호재 떴다 ㄹㅇ','[속보] 삼성전자 아마존과 스마트배송 산업 계약 체결…', '삼성 다시 상승하는데?ㅋ', '삼전충 입꾹닫 보소',\
-          '대깨삼', '삼전충들아 말 좀 해봐']
-img = '//Users//yeonghun//Desktop//head_break_samsung.jpg'
+
+titles = ['프로브의 슬픔','프로브를 아시나요', '프로브', 'date.today().strftime("%Y %m %d 손익인증")',\
+          '럴커', '탐사정']
+img = '//Users//yeonghun//Desktop//probe.jpg'
 
 for i in range(10):
     wait = random.randint(45, 90)
     time.sleep(wait)
-    title = random.choice(titles) + 'ㅋ' * random.randint(0,2)
-    content = '낄낄' * random.randint(2,8)
+    title = random.choice(titles) 
+    content = '.' * random.randint(1,3)
     macro = Macro(title=title, img=img, content=content)
