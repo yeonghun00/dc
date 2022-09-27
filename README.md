@@ -1,6 +1,6 @@
 # Dcinside 
 
-Dcinside is a Korean website that resembles Reddit.
+Dcinside is a Korean website similar to Reddit.
 
 **Crawler**
 
